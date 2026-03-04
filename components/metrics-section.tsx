@@ -152,7 +152,7 @@ export function MetricsSection() {
                       alt={`Instagram metrics screenshot ${i + 1}`}
                       width={300}
                       height={450}
-                      className="w-full h-auto object-contain opacity-100 group-hover:opacity-100 transition-opacity duration-300"
+                      className="w-full h-auto object-contain opacity-80 group-hover:opacity-80 transition-opacity duration-300"
                     />
                     {/* Overlay en hover - MÁS SUTIL */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
