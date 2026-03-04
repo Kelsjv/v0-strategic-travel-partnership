@@ -11,7 +11,7 @@ export function HeroSection() {
         priority
         quality={90}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/30" />
 
       <div className="relative z-10 flex flex-col items-center px-6 py-32 text-center max-w-4xl mx-auto space-y-8">
         <p className="text-sm tracking-[0.35em] uppercase text-muted-foreground mb-4 animate-fade-in-up">
