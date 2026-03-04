@@ -20,7 +20,7 @@ export function ClosingSection() {
             <p className="text-sm tracking-[0.3em] uppercase text-accent mb-10">
               Cierre Estratégico
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight mb-12 text-balance">
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight mb-12 text-balance" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.4)' }}>
               Posicionamiento antes que competencia
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
