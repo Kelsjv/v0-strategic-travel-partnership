@@ -68,17 +68,17 @@ const tiers = [
 
 export function PartnershipTiersSection() {
   return (
-    <section className="relative py-32 px-6 border-t border-border/50">
+    <section className="relative py-24 md:py-40 px-6 border-t border-border bg-gradient-to-b from-background via-secondary/10 to-background">
       <div className="max-w-7xl mx-auto">
         <FadeInSection>
-          <div className="text-center mb-20">
-            <p className="text-sm tracking-[0.3em] uppercase text-accent mb-6">
+          <div className="text-center mb-24">
+            <p className="text-sm tracking-[0.3em] uppercase text-accent mb-8">
               Niveles de Partnership
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl leading-tight mb-4 text-balance">
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight mb-6 text-balance">
               Propuesta de Colaboración
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               {
                 "Trabajo bajo un modelo estratégico de tres niveles: distribución, producción creativa y licenciamiento comercial."
               }
@@ -86,71 +86,73 @@ export function PartnershipTiersSection() {
           </div>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {tiers.map((tier, i) => (
             <FadeInSection key={i} delay={i * 150}>
               <div
-                className={`relative flex flex-col p-8 md:p-10 rounded-sm border h-full ${
+                className={`relative flex flex-col p-10 md:p-12 rounded-xl border h-full transition-all hover:shadow-lg ${
                   tier.featured
-                    ? "border-accent/40 bg-secondary/50"
-                    : "border-border/40"
+                    ? "border-accent/50 bg-gradient-to-br from-secondary/40 to-secondary/20 ring-1 ring-accent/20"
+                    : "border-border/50 bg-background/50 hover:bg-background"
                 }`}
               >
                 {tier.featured && (
-                  <div className="absolute -top-px left-0 right-0 h-px bg-accent" />
+                  <div className="absolute -top-3.5 left-8 px-4 py-1 bg-accent text-accent-foreground text-xs font-medium tracking-wider uppercase rounded-full">
+                    Recomendado
+                  </div>
                 )}
-                <div className="mb-8">
-                  <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                <div className="mb-10">
+                  <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-4">
                     {tier.duration}
                   </p>
-                  <h3 className="font-serif text-xl md:text-2xl text-foreground mb-4 text-balance">
+                  <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-6 text-balance">
                     {tier.name}
                   </h3>
-                  <p className="font-serif text-3xl md:text-4xl text-foreground mb-4">
+                  <p className="font-serif text-4xl md:text-5xl text-foreground mb-6">
                     {tier.price}
                   </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     {tier.description}
                   </p>
                 </div>
 
-                <div className="mb-6">
-                  <p className="text-xs tracking-[0.2em] uppercase text-accent mb-4">
+                <div className="mb-8">
+                  <p className="text-xs tracking-[0.2em] uppercase text-accent font-medium mb-6">
                     Incluye
                   </p>
-                  <ul className="space-y-3">
+                  <ul className="space-y-4">
                     {tier.includes.map((item, j) => (
                       <li
                         key={j}
-                        className="flex items-start gap-3 text-sm text-muted-foreground"
+                        className="flex items-start gap-4 text-sm text-muted-foreground"
                       >
-                        <span className="w-1 h-1 rounded-full bg-accent/60 mt-2 shrink-0" />
-                        {item}
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent/70 mt-2.5 shrink-0" />
+                        <span className="leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {"production" in tier && tier.production && (
-                  <div className="mb-6 pt-6 border-t border-border/30">
-                    <p className="text-xs tracking-[0.2em] uppercase text-accent mb-4">
+                  <div className="mb-8 pt-8 border-t border-border/30">
+                    <p className="text-xs tracking-[0.2em] uppercase text-accent font-medium mb-6">
                       Producción Creativa
                     </p>
-                    <ul className="space-y-3">
+                    <ul className="space-y-4">
                       {tier.production.map((item, j) => (
                         <li
                           key={j}
-                          className="flex items-start gap-3 text-sm text-muted-foreground"
+                          className="flex items-start gap-4 text-sm text-muted-foreground"
                         >
-                          <span className="w-1 h-1 rounded-full bg-accent/60 mt-2 shrink-0" />
-                          {item}
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent/70 mt-2.5 shrink-0" />
+                          <span className="leading-relaxed">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 )}
 
-                <p className="text-xs text-muted-foreground/70 mt-auto pt-6 border-t border-border/20 italic">
+                <p className="text-xs text-muted-foreground/70 mt-auto pt-8 border-t border-border/20 italic leading-relaxed">
                   {tier.note}
                 </p>
               </div>
