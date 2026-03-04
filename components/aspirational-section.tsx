@@ -35,6 +35,7 @@ export function AspirationalSection() {
                   ? "text-lg md:text-xl text-foreground font-medium border-l-4 border-accent pl-8 bg-background/80 backdrop-blur p-6 rounded-lg"
                   : "text-lg md:text-xl text-muted-foreground"
               }`}
+              style={i === 0 || i === 2 ? { textShadow: '0 4px 12px rgba(0,0,0,0.4)' } : (i === passages.length - 1 ? { textShadow: '0 2px 8px rgba(0,0,0,0.3)' } : { textShadow: '0 2px 8px rgba(0,0,0,0.3)' })}
             >
               {text}
             </p>
