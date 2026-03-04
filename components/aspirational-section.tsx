@@ -13,7 +13,7 @@ export function AspirationalSection() {
   return (
     <section className="relative py-0">
       {/* Full-width cinematic image */}
-      <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+      <div className="relative h-[50vh] md:h-[70vh] overflow-hidden">
         <Image
           src="/images/hiking-mountain.jpg"
           alt="Dramatic hiking trail along a mountain ridge at dawn"
@@ -21,19 +21,19 @@ export function AspirationalSection() {
           className="object-cover"
           quality={85}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
       </div>
 
-      <div className="relative -mt-32 z-10 max-w-3xl mx-auto px-6 py-32">
+      <div className="relative -mt-40 md:-mt-48 z-10 max-w-3xl mx-auto px-6 py-40">
         {passages.map((text, i) => (
           <FadeInSection key={i} delay={i * 80}>
             <p
-              className={`mb-8 leading-relaxed ${
+              className={`mb-12 leading-relaxed ${
                 i === 0 || i === 2
-                  ? "font-serif text-2xl md:text-3xl text-foreground"
+                  ? "font-serif text-2xl md:text-4xl text-foreground"
                   : i === passages.length - 1
-                  ? "text-lg text-foreground font-medium border-l-2 border-accent pl-6"
-                  : "text-lg text-muted-foreground"
+                  ? "text-lg md:text-xl text-foreground font-medium border-l-4 border-accent pl-8 bg-background/80 backdrop-blur p-6 rounded-lg"
+                  : "text-lg md:text-xl text-muted-foreground"
               }`}
             >
               {text}
