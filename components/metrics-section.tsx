@@ -148,7 +148,7 @@ export function MetricsSection() {
                 <FadeInSection key={i} delay={0}>
                   <div className="group relative overflow-hidden rounded-lg bg-secondary border border-border/30 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
                     <Image
-                      src={`/metrics/metric-${i + 1}.jpeg`}
+                      src={`/metrics/metric-${i + 1}.jpg`}
                       alt={`Instagram metrics screenshot ${i + 1}`}
                       width={300}
                       height={450}
