@@ -11,17 +11,17 @@ export function HeroSection() {
         priority
         quality={90}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
 
       <div className="relative z-10 flex flex-col items-center px-6 py-32 text-center max-w-4xl mx-auto space-y-8">
-        <p className="text-sm tracking-[0.35em] uppercase text-muted-foreground mb-4 animate-fade-in-up">
+        <p className="text-sm tracking-[0.35em] uppercase text-muted-foreground mb-4 animate-fade-in-up" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
           Kelly Vega
         </p>
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-balance animate-fade-in-up animation-delay-200">
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight text-balance animate-fade-in-up animation-delay-200" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.4)' }}>
           Strategic Travel Media Partnership 2026
         </h1>
         <div className="w-16 h-px bg-accent mt-8 mb-4 animate-fade-in-up animation-delay-400" />
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-in-up animation-delay-600">
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed animate-fade-in-up animation-delay-600" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
           {
             "Integración Aspiracional para Marcas de Protección Internacional — Un modelo estratégico diseñado para posicionar marcas de asistencia de viaje dentro de experiencias internacionales reales."
           }
