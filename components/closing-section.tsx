@@ -1,72 +1,72 @@
 import Image from "next/image"
 import { FadeInSection } from "./fade-in-section"
 
-export function InfrastructureSection() {
+export function ClosingSection() {
   return (
-    <section className="relative py-0">
-      {/* Full-width cinematic image */}
-      <div className="relative h-[45vh] md:h-[65vh] overflow-hidden">
+    <section className="relative">
+      {/* Full-width cinematic background */}
+      <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-secondary/40">
         <Image
-          src="/images/road-trip.jpg"
-          alt="Road trip through dramatic desert highway at dusk"
+          src="/images/closing-bg.jpg"
+          alt="Dramatic mountain lake at sunrise"
           fill
-          className="object-cover"
+          className="object-cover absolute"
           quality={85}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/30 to-background/60" />
 
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative z-10 max-w-3xl mx-auto px-6 py-32 md:py-48 text-center">
           <FadeInSection>
-            <div className="text-center px-6">
-              <p className="text-sm tracking-[0.3em] uppercase text-accent/90 mb-6">
-                2026
-              </p>
-              <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-foreground text-balance">
-                Infraestructura Narrativa Internacional
-              </h2>
-            </div>
+            <p className="text-sm tracking-[0.3em] uppercase text-accent mb-10">
+              Cierre Estratégico
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight mb-12 text-balance">
+              Posicionamiento antes que competencia
+            </h2>
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto">
+              {
+                "Las marcas que liderarán el mercado no serán las que hablen más fuerte de cobertura. Serán las que logren que viajar protegido se sienta inseparable del viaje."
+              }
+            </p>
+            <p className="text-foreground font-medium text-xl md:text-2xl mb-20">
+              {
+                "Este partnership está diseñado para ocupar ese espacio."
+              }
+            </p>
           </FadeInSection>
-        </div>
-      </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-28 md:py-40">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-          <FadeInSection>
-            <div className="space-y-6">
-              <p className="font-serif text-2xl md:text-3xl text-foreground">
-                {"Road trips documentados."}
+          <FadeInSection delay={200}>
+            <div className="border-t border-border/40 pt-16">
+              <p className="font-serif text-2xl md:text-3xl text-foreground mb-4">
+                Kelly Vega
               </p>
-              <p className="font-serif text-2xl md:text-3xl text-foreground">
-                {"Hiking en montaña."}
+              <p className="text-sm text-muted-foreground tracking-wide mb-12 uppercase">
+                Travel Content Director
               </p>
-              <p className="font-serif text-2xl md:text-3xl text-foreground">
-                {"Exploración internacional."}
-              </p>
-              <p className="font-serif text-2xl md:text-3xl text-foreground">
-                {"Viajes grupales liderados."}
-              </p>
-            </div>
-          </FadeInSection>
-          <FadeInSection delay={150}>
-            <div className="space-y-8 pt-6">
-              {[
-                "Integración auténtica",
-                "Repetición estratégica",
-                "Posicionamiento acumulativo",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-6 text-muted-foreground text-lg"
+              <div className="flex flex-col items-center gap-6 text-base text-muted-foreground space-y-4">
+                <a
+                  href="https://instagram.com/dondeesta_kelly"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors duration-300 font-medium"
                 >
-                  <div className="w-12 h-px bg-accent/60 shrink-0" />
-                  <p className="leading-relaxed">{item}</p>
-                </div>
-              ))}
-              <p className="text-foreground font-medium text-lg pt-6 border-t-2 border-accent/30 mt-8">
-                {
-                  "El espacio narrativo se ocupa antes que la competencia."
-                }
-              </p>
+                  Instagram: @dondeesta_kelly
+                </a>
+                <a
+                  href="https://tiktok.com/@dondeesta_kelly"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors duration-300 font-medium"
+                >
+                  TikTok: @dondeesta_kelly
+                </a>
+                <a
+                  href="mailto:dondeestakelly@gmail.com"
+                  className="hover:text-accent transition-colors duration-300 font-medium"
+                >
+                  dondeestakelly@gmail.com
+                </a>
+              </div>
             </div>
           </FadeInSection>
         </div>
