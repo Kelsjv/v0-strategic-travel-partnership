@@ -65,31 +65,25 @@ const stats = [
 ]
 
 export function MetricsSection() {
-  const [scrollPosition, setScrollPosition] = useState(0)
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const itemsPerView = 3
 
-  const handleScroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 300
-      scrollContainerRef.current.scrollBy({
-        left: direction === "right" ? scrollAmount : -scrollAmount,
-        behavior: "smooth",
-      })
-      
-      // Update scroll position
-      setTimeout(() => {
-        if (scrollContainerRef.current) {
-          setScrollPosition(scrollContainerRef.current.scrollLeft)
-        }
-      }, 100)
+  const handleNext = () => {
+    if (currentIndex < 9 - itemsPerView) {
+      setCurrentIndex(currentIndex + 1)
     }
   }
 
-  const onScroll = () => {
-    if (scrollContainerRef.current) {
-      setScrollPosition(scrollContainerRef.current.scrollLeft)
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
     }
   }
+
+  const visibleItems = Array.from({ length: 9 }, (_, i) => i).slice(
+    currentIndex,
+    currentIndex + itemsPerView
+  )
 
   return (
     <section className="relative py-24 md:py-40 px-6 border-t border-border bg-gradient-to-b from-secondary/20 to-background">
@@ -128,72 +122,65 @@ export function MetricsSection() {
           ))}
         </div>
 
-        {/* Evidence Carousel Horizontal Compacto */}
+        {/* Evidence Carousel */}
         <FadeInSection>
-          <p className="text-sm tracking-[0.3em] uppercase text-accent mb-8 text-center">
+          <p className="text-sm tracking-[0.3em] uppercase text-accent mb-16 text-center">
             Evidencia Visual
           </p>
         </FadeInSection>
 
-        {/* Carrusel Container */}
-        <div className="relative group">
-          {/* Scroll Container */}
-          <div
-            ref={scrollContainerRef}
-            onScroll={onScroll}
-            className="flex gap-4 overflow-x-auto scroll-smooth pb-2"
-            style={{
-              scrollBehavior: "smooth",
-              WebkitOverflowScrolling: "touch",
-              scrollbarWidth: "thin",
-            }}
+        {/* Carrusel con 3 imágenes visibles */}
+        <div className="relative flex items-center justify-center gap-6">
+          {/* Botón Anterior */}
+          <button
+            onClick={handlePrev}
+            disabled={currentIndex === 0}
+            className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-background border border-border/50 rounded-full hover:bg-secondary hover:border-border transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label="Imagen anterior"
           >
-            {Array.from({ length: 9 }, (_, i) => (
-              <div key={i} className="flex-shrink-0 w-48 md:w-56">
-                <FadeInSection delay={i * 30}>
-                  <div className="group/item relative overflow-hidden rounded-lg bg-secondary border border-border/30 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+            <span className="text-2xl text-foreground">‹</span>
+          </button>
+
+          {/* Grid de 3 imágenes */}
+          <div className="flex-1">
+            <div className="grid grid-cols-3 gap-4 md:gap-6">
+              {visibleItems.map((i) => (
+                <FadeInSection key={i} delay={0}>
+                  <div className="group relative overflow-hidden rounded-lg bg-secondary border border-border/30 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
                     <Image
                       src={`/metrics/metric-${i + 1}.jpeg`}
                       alt={`Instagram metrics screenshot ${i + 1}`}
                       width={300}
                       height={450}
-                      className="w-full h-auto object-contain opacity-85 group-hover/item:opacity-100 transition-opacity duration-300 p-1"
+                      className="w-full h-auto object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-300 p-2"
                     />
                     {/* Overlay en hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
                     {/* Número de imagen */}
-                    <div className="absolute bottom-2 right-2 bg-background/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-foreground opacity-0 group-hover/item:opacity-100 transition-opacity">
+                    <div className="absolute bottom-2 right-2 bg-background/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-foreground opacity-0 group-hover:opacity-100 transition-opacity">
                       {i + 1}/9
                     </div>
                   </div>
                 </FadeInSection>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* Botón Anterior - Visible en hover */}
+          {/* Botón Siguiente */}
           <button
-            onClick={() => handleScroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-background border border-border/50 rounded-full hover:bg-secondary hover:border-border transition-all duration-300 opacity-0 group-hover:opacity-100 z-10"
-            aria-label="Scroll izquierda"
+            onClick={handleNext}
+            disabled={currentIndex >= 9 - itemsPerView}
+            className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-background border border-border/50 rounded-full hover:bg-secondary hover:border-border transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            aria-label="Siguiente imagen"
           >
-            <span className="text-xl md:text-2xl text-foreground">‹</span>
-          </button>
-
-          {/* Botón Siguiente - Visible en hover */}
-          <button
-            onClick={() => handleScroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-background border border-border/50 rounded-full hover:bg-secondary hover:border-border transition-all duration-300 opacity-0 group-hover:opacity-100 z-10"
-            aria-label="Scroll derecha"
-          >
-            <span className="text-xl md:text-2xl text-foreground">›</span>
+            <span className="text-2xl text-foreground">›</span>
           </button>
         </div>
 
-        {/* Indicador de scroll */}
-        <div className="text-center mt-6 text-xs text-muted-foreground">
-          Desliza horizontalmente o usa las flechas
+        {/* Indicador de progreso */}
+        <div className="text-center mt-8 text-sm text-muted-foreground">
+          Imágenes {currentIndex + 1} - {currentIndex + itemsPerView} de 9
         </div>
       </div>
     </section>
