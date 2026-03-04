@@ -102,22 +102,25 @@ export function MetricsSection() {
           ))}
         </div>
 
-        {/* Evidence Grid - 2 Columnas */}
+        {/* Evidence Grid - 3 Columnas, Sin aspect ratio fijo */}
         <FadeInSection>
           <p className="text-sm tracking-[0.3em] uppercase text-accent mb-16 text-center">
             Evidencia Visual
           </p>
         </FadeInSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {Array.from({ length: 9 }, (_, i) => (
             <FadeInSection key={i} delay={i * 60}>
-              <div className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-secondary border border-border/30 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
-                <Image
-                  src={`/metrics/metric-${i + 1}.jpeg`}
-                  alt={`Instagram metrics screenshot ${i + 1}`}
-                  fill
-                  className="object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-500 p-2"
-                />
+              <div className="group relative overflow-hidden rounded-xl bg-secondary border border-border/30 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                <div className="relative h-auto min-h-96 md:h-full">
+                  <Image
+                    src={`/metrics/metric-${i + 1}.jpeg`}
+                    alt={`Instagram metrics screenshot ${i + 1}`}
+                    width={400}
+                    height={600}
+                    className="w-full h-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-500 p-2"
+                  />
+                </div>
                 {/* Overlay oscuro sutil en hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
