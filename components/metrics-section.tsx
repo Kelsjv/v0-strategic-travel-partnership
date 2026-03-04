@@ -65,32 +65,29 @@ const stats = [
 ]
 
 export function MetricsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [scrollPosition, setScrollPosition] = useState(0)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
-  const handleNext = () => {
-    if (currentIndex < 9 - 1) {
-      setCurrentIndex(currentIndex + 1)
-      scrollToIndex(currentIndex + 1)
-    }
-  }
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
-      scrollToIndex(currentIndex - 1)
-    }
-  }
-
-  const scrollToIndex = (index: number) => {
+  const handleScroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const itemWidth = scrollContainerRef.current.children[0]?.clientWidth || 0
-      const gap = 24 // md:gap-6 = 24px
-      const scrollLeft = index * (itemWidth + gap)
-      scrollContainerRef.current.scrollTo({
-        left: scrollLeft,
+      const scrollAmount = 300
+      scrollContainerRef.current.scrollBy({
+        left: direction === "right" ? scrollAmount : -scrollAmount,
         behavior: "smooth",
       })
+      
+      // Update scroll position
+      setTimeout(() => {
+        if (scrollContainerRef.current) {
+          setScrollPosition(scrollContainerRef.current.scrollLeft)
+        }
+      }, 100)
+    }
+  }
+
+  const onScroll = () => {
+    if (scrollContainerRef.current) {
+      setScrollPosition(scrollContainerRef.current.scrollLeft)
     }
   }
 
@@ -131,89 +128,72 @@ export function MetricsSection() {
           ))}
         </div>
 
-        {/* Evidence Carousel */}
+        {/* Evidence Carousel Horizontal Compacto */}
         <FadeInSection>
-          <div className="mb-16">
-            <p className="text-sm tracking-[0.3em] uppercase text-accent mb-8 text-center">
-              Evidencia Visual
-            </p>
-            <p className="text-muted-foreground text-center text-sm">
-              Imagen {currentIndex + 1} de 9
-            </p>
-          </div>
+          <p className="text-sm tracking-[0.3em] uppercase text-accent mb-8 text-center">
+            Evidencia Visual
+          </p>
         </FadeInSection>
 
-        {/* Carrusel */}
-        <div className="relative">
-          {/* Container de scroll */}
+        {/* Carrusel Container */}
+        <div className="relative group">
+          {/* Scroll Container */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-4 snap-x snap-mandatory"
+            onScroll={onScroll}
+            className="flex gap-4 overflow-x-auto scroll-smooth pb-2"
             style={{
               scrollBehavior: "smooth",
               WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "thin",
             }}
           >
             {Array.from({ length: 9 }, (_, i) => (
-              <FadeInSection key={i} delay={i * 60}>
-                <div className="flex-shrink-0 w-80 md:w-96">
-                  <div className="group relative overflow-hidden rounded-xl bg-secondary border border-border/30 shadow-lg hover:shadow-2xl transition-all duration-500">
+              <div key={i} className="flex-shrink-0 w-48 md:w-56">
+                <FadeInSection delay={i * 30}>
+                  <div className="group/item relative overflow-hidden rounded-lg bg-secondary border border-border/30 shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
                     <Image
                       src={`/metrics/metric-${i + 1}.jpeg`}
                       alt={`Instagram metrics screenshot ${i + 1}`}
-                      width={400}
-                      height={600}
-                      className="w-full h-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-500 p-2"
+                      width={300}
+                      height={450}
+                      className="w-full h-auto object-contain opacity-85 group-hover/item:opacity-100 transition-opacity duration-300 p-1"
                     />
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Overlay en hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Número de imagen */}
+                    <div className="absolute bottom-2 right-2 bg-background/80 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-foreground opacity-0 group-hover/item:opacity-100 transition-opacity">
+                      {i + 1}/9
+                    </div>
                   </div>
-                </div>
-              </FadeInSection>
+                </FadeInSection>
+              </div>
             ))}
           </div>
 
-          {/* Botones de navegación */}
-          <div className="flex items-center justify-between mt-8">
-            {/* Botón Anterior */}
-            <button
-              onClick={handlePrev}
-              disabled={currentIndex === 0}
-              className="w-12 h-12 flex items-center justify-center bg-background border border-border/50 rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:border-border transition-all duration-300"
-              aria-label="Imagen anterior"
-            >
-              <span className="text-2xl text-foreground">‹</span>
-            </button>
+          {/* Botón Anterior - Visible en hover */}
+          <button
+            onClick={() => handleScroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-background border border-border/50 rounded-full hover:bg-secondary hover:border-border transition-all duration-300 opacity-0 group-hover:opacity-100 z-10"
+            aria-label="Scroll izquierda"
+          >
+            <span className="text-xl md:text-2xl text-foreground">‹</span>
+          </button>
 
-            {/* Indicadores */}
-            <div className="flex gap-2">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    setCurrentIndex(i)
-                    scrollToIndex(i)
-                  }}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === currentIndex
-                      ? "bg-accent w-8"
-                      : "bg-border/50 w-2 hover:bg-border"
-                  }`}
-                  aria-label={`Ir a imagen ${i + 1}`}
-                />
-              ))}
-            </div>
+          {/* Botón Siguiente - Visible en hover */}
+          <button
+            onClick={() => handleScroll("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-background border border-border/50 rounded-full hover:bg-secondary hover:border-border transition-all duration-300 opacity-0 group-hover:opacity-100 z-10"
+            aria-label="Scroll derecha"
+          >
+            <span className="text-xl md:text-2xl text-foreground">›</span>
+          </button>
+        </div>
 
-            {/* Botón Siguiente */}
-            <button
-              onClick={handleNext}
-              disabled={currentIndex === 8}
-              className="w-12 h-12 flex items-center justify-center bg-background border border-border/50 rounded-full hover:bg-secondary disabled:opacity-50 disabled:cursor-not-allowed hover:border-border transition-all duration-300"
-              aria-label="Siguiente imagen"
-            >
-              <span className="text-2xl text-foreground">›</span>
-            </button>
-          </div>
+        {/* Indicador de scroll */}
+        <div className="text-center mt-6 text-xs text-muted-foreground">
+          Desliza horizontalmente o usa las flechas
         </div>
       </div>
     </section>
