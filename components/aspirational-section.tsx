@@ -24,23 +24,39 @@ export function AspirationalSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
       </div>
 
-      <div className="relative -mt-40 md:-mt-48 z-10 max-w-3xl mx-auto px-6 py-40">
-        {passages.map((text, i) => (
-          <FadeInSection key={i} delay={i * 80}>
-            <p
-              className={`mb-12 leading-relaxed ${
-                i === 0 || i === 2
-                  ? "font-serif text-2xl md:text-4xl text-foreground"
-                  : i === passages.length - 1
-                  ? "text-lg md:text-xl text-foreground font-medium border-l-4 border-accent pl-8 bg-background/80 backdrop-blur p-6 rounded-lg"
-                  : "text-lg md:text-xl text-muted-foreground"
-              }`}
-              style={i === 0 || i === 2 ? { textShadow: '0 4px 12px rgba(0,0,0,0.4)' } : (i === passages.length - 1 ? { textShadow: '0 2px 8px rgba(0,0,0,0.3)' } : { textShadow: '0 2px 8px rgba(0,0,0,0.3)' })}
-            >
-              {text}
-            </p>
+      <div className="relative -mt-40 md:-mt-48 z-10 max-w-7xl mx-auto px-6 py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div>
+            {passages.map((text, i) => (
+              <FadeInSection key={i} delay={i * 80}>
+                <p
+                  className={`mb-12 leading-relaxed ${
+                    i === 0 || i === 2
+                      ? "font-serif text-2xl md:text-4xl text-foreground"
+                      : i === passages.length - 1
+                      ? "text-lg md:text-xl text-foreground font-medium border-l-4 border-accent pl-8 bg-background/80 backdrop-blur p-6 rounded-lg"
+                      : "text-lg md:text-xl text-muted-foreground"
+                  }`}
+                  style={i === 0 || i === 2 ? { textShadow: '0 4px 12px rgba(0,0,0,0.4)' } : (i === passages.length - 1 ? { textShadow: '0 2px 8px rgba(0,0,0,0.3)' } : { textShadow: '0 2px 8px rgba(0,0,0,0.3)' })}
+                >
+                  {text}
+                </p>
+              </FadeInSection>
+            ))}
+          </div>
+
+          <FadeInSection delay={400}>
+            <div className="relative aspect-[3/4] rounded-lg overflow-hidden sticky top-20">
+              <Image
+                src="/vertical-1.jpg"
+                alt="Inspirational travel destination and exploration"
+                fill
+                className="object-cover"
+                quality={85}
+              />
+            </div>
           </FadeInSection>
-        ))}
+        </div>
       </div>
     </section>
   )

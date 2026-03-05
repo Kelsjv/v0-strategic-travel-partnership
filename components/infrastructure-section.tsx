@@ -29,7 +29,7 @@ export function InfrastructureSection() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-28 md:py-40">
+      <div className="max-w-4xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           <FadeInSection>
             <div className="space-y-6">

@@ -10,7 +10,7 @@ const modelPoints = [
 
 export function PartnershipModelSection() {
   return (
-    <section className="relative py-32 px-6 border-t border-border/50">
+    <section className="relative py-20 px-6 border-t border-border/50">
       <div className="max-w-4xl mx-auto">
         <FadeInSection>
           <p className="text-sm tracking-[0.3em] uppercase text-accent mb-6">

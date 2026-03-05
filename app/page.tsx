@@ -4,10 +4,13 @@ import { TravelerBehaviorSection } from "@/components/traveler-behavior-section"
 import { AspirationalSection } from "@/components/aspirational-section"
 import { IntegrationSection } from "@/components/integration-section"
 import { PartnershipModelSection } from "@/components/partnership-model-section"
+import { CreativeDirectionSection } from "@/components/creative-direction-section"
 import { EcosystemSection } from "@/components/ecosystem-section"
 import { MetricsSection } from "@/components/metrics-section"
 import { InfrastructureSection } from "@/components/infrastructure-section"
+import { ImageSeparatorSection } from "@/components/image-separator-section"
 import { PartnershipTiersSection } from "@/components/partnership-tiers-section"
+import { PartnershipCtaSection } from "@/components/partnership-cta-section"
 import { ClosingSection } from "@/components/closing-section"
 
 export default function Page() {
@@ -19,10 +22,13 @@ export default function Page() {
       <AspirationalSection />
       <IntegrationSection />
       <PartnershipModelSection />
+      <CreativeDirectionSection />
       <EcosystemSection />
       <MetricsSection />
       <InfrastructureSection />
+      <ImageSeparatorSection />
       <PartnershipTiersSection />
+      <PartnershipCtaSection />
       <ClosingSection />
     </main>
   )
