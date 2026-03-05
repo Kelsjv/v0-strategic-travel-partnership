@@ -68,10 +68,10 @@ const tiers = [
 
 export function PartnershipTiersSection() {
   return (
-    <section className="relative py-24 md:py-40 px-6 border-t border-border bg-gradient-to-b from-background via-secondary/10 to-background">
+    <section className="relative py-20 px-6 border-t border-border bg-gradient-to-b from-background via-secondary/10 to-background">
       <div className="max-w-7xl mx-auto">
         <FadeInSection>
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <p className="text-sm tracking-[0.3em] uppercase text-accent mb-8">
               Niveles de Partnership
             </p>

@@ -86,10 +86,10 @@ export function MetricsSection() {
   )
 
   return (
-    <section className="relative py-24 md:py-40 px-6 border-t border-border bg-gradient-to-b from-secondary/20 to-background">
+    <section className="relative py-20 px-6 border-t border-border bg-gradient-to-b from-secondary/20 to-background">
       <div className="max-w-6xl mx-auto">
         <FadeInSection>
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <p className="text-sm tracking-[0.3em] uppercase text-accent mb-8">
               Resultados
             </p>
@@ -103,7 +103,7 @@ export function MetricsSection() {
         </FadeInSection>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-28">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-20">
           {stats.map((stat, i) => (
             <FadeInSection key={i} delay={i * 100}>
               <div className="text-center p-8 bg-background rounded-lg border border-border/50">
