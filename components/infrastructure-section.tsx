@@ -8,7 +8,7 @@ export function InfrastructureSection() {
       <div className="max-w-7xl mx-auto px-8">
         
         {/* Grid Layout: Texto (45%), Imagen (55%) - Más equilibrado */}
-        <div className="grid grid-cols-12 gap-16 items-center">
+        <div className="grid grid-cols-12 gap-8 items-center">
           
           {/* COLUMNA IZQUIERDA - Contenido (5 columnas) */}
           <div className="col-span-5 space-y-10">
