@@ -19,7 +19,7 @@ export function CreativeDirectionSection() {
           <FadeInSection>
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
               <Image
-                src="/images/vertical-3.jpg"
+                src="/images/vertical-3.jpeg"
                 alt="Kelly Vega - Travel Content Director"
                 fill
                 className="object-cover"
@@ -83,7 +83,7 @@ export function CreativeDirectionSection() {
             <div className="space-y-8">
               <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
                 <Image
-                  src="/images/vertical-5.jpg"
+                  src="/images/vertical-5.jpeg"
                   alt="International travel experiences and group expeditions"
                   fill
                   className="object-cover"
