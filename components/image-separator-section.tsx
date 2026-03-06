@@ -8,7 +8,6 @@ export function ImageSeparatorSection() {
         <div className="flex justify-center">
           <FadeInSection>
             <div className="relative w-full max-w-sm md:max-w-md">
-              {/* Contenedor vertical */}
               <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <Image
                   src="/images/vertical-4.jpeg"
