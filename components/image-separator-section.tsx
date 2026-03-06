@@ -8,7 +8,7 @@ export function ImageSeparatorSection() {
         <FadeInSection>
           <div className="relative h-[500px] md:h-[600px] rounded-lg overflow-hidden">
             <Image
-              src="/vertical-4.jpg"
+              src="/images/vertical-4.jpg"
               alt="International travel experience and exploration"
               fill
               className="object-cover"
