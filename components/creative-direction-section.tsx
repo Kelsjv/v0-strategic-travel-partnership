@@ -19,7 +19,7 @@ export function CreativeDirectionSection() {
           <FadeInSection>
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
               <Image
-                src="/vertical-3.jpg"
+                src="/images/vertical-3.jpg"
                 alt="Kelly Vega - Travel Content Director"
                 fill
                 className="object-cover"
@@ -81,6 +81,15 @@ export function CreativeDirectionSection() {
 
           <FadeInSection delay={450}>
             <div className="space-y-8">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
+                <Image
+                  src="/images/vertical-5.jpg"
+                  alt="International travel experiences and group expeditions"
+                  fill
+                  className="object-cover"
+                  quality={85}
+                />
+              </div>
               <div className="border-l-4 border-accent pl-8 py-4">
                 <p className="text-sm tracking-[0.2em] uppercase text-accent font-medium mb-4">
                   Propósito
