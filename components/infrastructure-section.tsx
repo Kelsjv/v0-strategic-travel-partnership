@@ -1,11 +1,13 @@
-import React from 'react';
+'use client';
 
-export default function StrategicTravelSection() {
+import Image from 'next/image';
+
+export function InfrastructureSection() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+    <div className="min-h-screen bg-white py-20">
+      <div className="max-w-7xl mx-auto px-6">
         
-        {/* Grid Layout: Texto izquierda, Imagen derecha */}
+        {/* Grid Layout: Texto izquierda (2 cols), Imagen derecha (3 cols) */}
         <div className="grid grid-cols-5 gap-12 items-stretch min-h-[600px]">
           
           {/* COLUMNA IZQUIERDA - Contenido (2 columnas) */}
@@ -51,10 +53,12 @@ export default function StrategicTravelSection() {
 
           {/* COLUMNA DERECHA - Imagen (3 columnas) */}
           <div className="col-span-3 flex items-stretch">
-            <div className="w-full rounded-lg overflow-hidden shadow-xl">
-              <img
+            <div className="w-full rounded-lg overflow-hidden shadow-xl bg-gray-200">
+              <Image
                 src="/images/vertical-4.jpeg"
                 alt="Mountain hiking adventure"
+                width={600}
+                height={800}
                 className="w-full h-full object-cover"
               />
             </div>
