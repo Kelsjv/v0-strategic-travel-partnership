@@ -48,7 +48,7 @@ export function AspirationalSection() {
           <FadeInSection delay={400}>
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden sticky top-20">
               <Image
-                src="/images/vertical-1.jpg"
+                src="/images/vertical-1.jpeg"
                 alt="Inspirational travel destination and exploration"
                 fill
                 className="object-cover"
