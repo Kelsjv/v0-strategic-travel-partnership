@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 export function InfrastructureSection() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-white py-24">
-      <div className="max-w-7xl mx-auto px-8">
+    <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-white py-20">
+      <div className="max-w-6xl mx-auto px-6">
         
-        {/* Grid Layout: Texto (45%), Imagen (55%) - Más equilibrado */}
-        <div className="grid grid-cols-12 gap-2 items-center">
+        {/* Grid Layout: Texto y Imagen más pegados */}
+        <div className="grid grid-cols-12 gap-4 items-center">
           
           {/* COLUMNA IZQUIERDA - Contenido (5 columnas) */}
           <div className="col-span-5 space-y-10">
