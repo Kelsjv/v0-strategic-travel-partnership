@@ -7,8 +7,6 @@ import { PartnershipModelSection } from "@/components/partnership-model-section"
 import { CreativeDirectionSection } from "@/components/creative-direction-section"
 import { EcosystemSection } from "@/components/ecosystem-section"
 import { MetricsSection } from "@/components/metrics-section"
-import { InfrastructureSection } from "@/components/infrastructure-section"
-import { ImageSeparatorSection } from "@/components/image-separator-section"
 import { PartnershipTiersSection } from "@/components/partnership-tiers-section"
 import { PartnershipCtaSection } from "@/components/partnership-cta-section"
 import { ClosingSection } from "@/components/closing-section"
@@ -25,8 +23,6 @@ export default function Page() {
       <CreativeDirectionSection />
       <EcosystemSection />
       <MetricsSection />
-      <InfrastructureSection />
-      <ImageSeparatorSection />
       <PartnershipTiersSection />
       <PartnershipCtaSection />
       <ClosingSection />
