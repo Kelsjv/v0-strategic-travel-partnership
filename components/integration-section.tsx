@@ -31,7 +31,7 @@ export function IntegrationSection() {
           <FadeInSection delay={150}>
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
               <Image
-                src="/images/vertical-2.jpg"
+                src="/images/vertical-2.jpeg"
                 alt="Travel exploration and integration"
                 fill
                 className="object-cover"
