@@ -103,11 +103,11 @@ export function MetricsSection() {
         </FadeInSection>
 
         {/* Stats Grid - 3 arriba, 2 abajo - Ultra Comprimido */}
-        <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8">
+        <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
           {stats.slice(0, 3).map((stat, i) => (
             <FadeInSection key={i} delay={i * 100}>
-              <div className="text-center p-4 md:p-5 bg-background rounded-lg border border-border/50 min-h-[140px] md:min-h-[155px] flex flex-col justify-center items-center">
-                <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-foreground mb-2">
+              <div className="text-center p-3 md:p-4 bg-background rounded-lg border border-border/50 py-5 md:py-6 flex flex-col justify-center items-center">
+                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-1">
                   <AnimatedNumber
                     target={stat.value}
                     suffix={stat.suffix}
@@ -123,11 +123,11 @@ export function MetricsSection() {
         </div>
 
         {/* Fila inferior - 2 números centrados - Ultra Comprimido */}
-        <div className="flex justify-center gap-3 md:gap-4 mb-12">
+        <div className="flex justify-center gap-3 md:gap-4 mb-10">
           {stats.slice(3).map((stat, i) => (
             <FadeInSection key={i + 3} delay={(i + 3) * 100}>
-              <div className="text-center p-4 md:p-5 bg-background rounded-lg border border-border/50 min-h-[140px] md:min-h-[155px] flex flex-col justify-center items-center w-full md:w-72">
-                <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-foreground mb-2">
+              <div className="text-center p-3 md:p-4 bg-background rounded-lg border border-border/50 py-5 md:py-6 flex flex-col justify-center items-center w-full md:w-72">
+                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-1">
                   <AnimatedNumber
                     target={stat.value}
                     suffix={stat.suffix}
