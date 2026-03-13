@@ -102,11 +102,31 @@ export function MetricsSection() {
           </div>
         </FadeInSection>
 
-        {/* Stats Grid - Con mejor espaciado */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 mb-20">
-          {stats.map((stat, i) => (
+        {/* Stats Grid - 3 arriba, 2 abajo centrados */}
+        <div className="grid grid-cols-3 gap-6 md:gap-8 mb-20">
+          {stats.slice(0, 3).map((stat, i) => (
             <FadeInSection key={i} delay={i * 100}>
               <div className="text-center p-6 md:p-8 bg-background rounded-lg border border-border/50 min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center">
+                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
+                  <AnimatedNumber
+                    target={stat.value}
+                    suffix={stat.suffix}
+                    prefix={stat.prefix}
+                  />
+                </p>
+                <p className="text-sm text-muted-foreground tracking-wide uppercase leading-relaxed">
+                  {stat.label}
+                </p>
+              </div>
+            </FadeInSection>
+          ))}
+        </div>
+
+        {/* Fila inferior - 2 números centrados */}
+        <div className="flex justify-center gap-6 md:gap-8 mb-20">
+          {stats.slice(3).map((stat, i) => (
+            <FadeInSection key={i + 3} delay={(i + 3) * 100}>
+              <div className="text-center p-6 md:p-8 bg-background rounded-lg border border-border/50 min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center w-full md:w-96">
                 <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
                   <AnimatedNumber
                     target={stat.value}
