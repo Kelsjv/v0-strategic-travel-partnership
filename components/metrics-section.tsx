@@ -102,19 +102,19 @@ export function MetricsSection() {
           </div>
         </FadeInSection>
 
-        {/* Stats Grid - 3 arriba, 2 abajo centrados */}
-        <div className="grid grid-cols-3 gap-6 md:gap-8 mb-20">
+        {/* Stats Grid - 3 arriba, 2 abajo centrados - Comprimido */}
+        <div className="grid grid-cols-3 gap-4 md:gap-6 mb-12">
           {stats.slice(0, 3).map((stat, i) => (
             <FadeInSection key={i} delay={i * 100}>
-              <div className="text-center p-6 md:p-8 bg-background rounded-lg border border-border/50 min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center">
-                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
+              <div className="text-center p-5 md:p-6 bg-background rounded-lg border border-border/50 min-h-[160px] md:min-h-[180px] flex flex-col justify-center items-center">
+                <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-3">
                   <AnimatedNumber
                     target={stat.value}
                     suffix={stat.suffix}
                     prefix={stat.prefix}
                   />
                 </p>
-                <p className="text-sm text-muted-foreground tracking-wide uppercase leading-relaxed">
+                <p className="text-xs md:text-sm text-muted-foreground tracking-wide uppercase leading-tight">
                   {stat.label}
                 </p>
               </div>
@@ -122,19 +122,19 @@ export function MetricsSection() {
           ))}
         </div>
 
-        {/* Fila inferior - 2 números centrados */}
-        <div className="flex justify-center gap-6 md:gap-8 mb-20">
+        {/* Fila inferior - 2 números centrados - Comprimido */}
+        <div className="flex justify-center gap-4 md:gap-6 mb-16">
           {stats.slice(3).map((stat, i) => (
             <FadeInSection key={i + 3} delay={(i + 3) * 100}>
-              <div className="text-center p-6 md:p-8 bg-background rounded-lg border border-border/50 min-h-[200px] md:min-h-[220px] flex flex-col justify-center items-center w-full md:w-96">
-                <p className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-4">
+              <div className="text-center p-5 md:p-6 bg-background rounded-lg border border-border/50 min-h-[160px] md:min-h-[180px] flex flex-col justify-center items-center w-full md:w-80">
+                <p className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-3">
                   <AnimatedNumber
                     target={stat.value}
                     suffix={stat.suffix}
                     prefix={stat.prefix}
                   />
                 </p>
-                <p className="text-sm text-muted-foreground tracking-wide uppercase leading-relaxed">
+                <p className="text-xs md:text-sm text-muted-foreground tracking-wide uppercase leading-tight">
                   {stat.label}
                 </p>
               </div>
