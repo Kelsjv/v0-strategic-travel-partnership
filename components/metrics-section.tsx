@@ -57,11 +57,11 @@ function AnimatedNumber({
 }
 
 const stats = [
-  { value: 958920, suffix: "+", label: "Visualizaciones orgánicas" },
-  { value: 743570, suffix: "+", label: "Cuentas alcanzadas" },
-  { value: 82.7, suffix: "%", label: "Audiencia nueva" },
+  { value: 1403552, suffix: "+", label: "Visualizaciones orgánicas" },
+  { value: 110509, suffix: "+", label: "Cuentas alcanzadas" },
+  { value: 85.8, suffix: "%", label: "Audiencia nueva" },
   { value: 0, suffix: "% Ads", label: "Inversión en anuncios" },
-  { value: 1257, suffix: "%", prefix: "+", label: "Crecimiento en alcance" },
+  { value: 2776, suffix: "%", prefix: "+", label: "Crecimiento en alcance" },
 ]
 
 export function MetricsSection() {
